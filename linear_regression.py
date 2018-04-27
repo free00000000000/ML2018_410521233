@@ -10,10 +10,6 @@ I = mpimg.imread('./Image_and_ImageData/I.png')
 E = mpimg.imread('./Image_and_ImageData/E.png')
 eprime = mpimg.imread('./Image_and_ImageData/Eprime.png')
 
-plt.imshow(I, cmap="gray")
-plt.show()
-
-
 #print(k1.shape)  # (300, 400)
 k1 = np.reshape(k1, [-1])  # (120000,)
 k2 = np.reshape(k2, [-1])
@@ -27,3 +23,21 @@ I = np.expand_dims(I, axis=0)
 a = np.concatenate((k1, k2, I), axis=0)  # (3, 120000)
 
 print(a.shape)
+
+# w = [w1, w2, w3]
+w = tf.Variable(tf.ones(shape=[1, 3]))
+
+e = tf.matmul(w, a)
+
+loss = tf.reduce_mean(tf.square(tf.subtract(e, E)))
+
+
+init = tf.global_variables_initializer()
+sess = tf.Session()
+
+sess.run(init)
+
+
+print(sess.run(w))
+print(sess.run(e))
+print(sess.run(loss))

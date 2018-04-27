@@ -51,10 +51,9 @@ W = sess.run(w)
 
 print(W)
 
-'''
-img = 
+img = np.divide(np.subtract(np.subtract(eprime, np.multiply(W[0][0], k1)), np.multiply(W[0][1], k2)), W[0][2])
 
 img = np.reshape(img, [300, 400])
 plt.imshow(img)
 plt.show()
-'''
+

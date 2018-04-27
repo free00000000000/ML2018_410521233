@@ -55,5 +55,5 @@ img = np.divide(np.subtract(np.subtract(eprime, np.multiply(W[0][0], k1)), np.mu
 
 img = np.reshape(img, [300, 400])
 plt.imshow(img, cmap='gray')
-plt.show()
-
+#plt.show()
+plt.savefig('result.png')

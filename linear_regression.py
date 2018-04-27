@@ -31,13 +31,30 @@ e = tf.matmul(w, a)
 
 loss = tf.reduce_mean(tf.square(tf.subtract(e, E)))
 
+optimizer = tf.train.GradientDescentOptimizer(0.2)
+train = optimizer.minimize(loss)
 
 init = tf.global_variables_initializer()
 sess = tf.Session()
 
 sess.run(init)
 
+step = 1
+while sess.run(loss) > 1e-5:
+    sess.run(train)
+    if step % 100 == 0:
+        print('step', step)
+        print('loss', sess.run(loss))
+    step += 1
 
-print(sess.run(w))
-print(sess.run(e))
-print(sess.run(loss))
+W = sess.run(w)
+
+print(W)
+
+'''
+img = 
+
+img = np.reshape(img, [300, 400])
+plt.imshow(img)
+plt.show()
+'''

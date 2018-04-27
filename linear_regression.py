@@ -31,7 +31,7 @@ e = tf.matmul(w, a)
 
 loss = tf.reduce_mean(tf.square(tf.subtract(e, E)))
 
-optimizer = tf.train.GradientDescentOptimizer(0.2)
+optimizer = tf.train.GradientDescentOptimizer(0.01)
 train = optimizer.minimize(loss)
 
 init = tf.global_variables_initializer()
@@ -54,6 +54,6 @@ print(W)
 img = np.divide(np.subtract(np.subtract(eprime, np.multiply(W[0][0], k1)), np.multiply(W[0][1], k2)), W[0][2])
 
 img = np.reshape(img, [300, 400])
-plt.imshow(img)
+plt.imshow(img, cmap='gray')
 plt.show()
 

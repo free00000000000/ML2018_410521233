@@ -49,6 +49,7 @@ while sess.run(loss) > 1e-5:
 
 W = sess.run(w)
 
+print('MaxIterLimit:', step)
 print(W)
 
 img = np.divide(np.subtract(np.subtract(eprime, np.multiply(W[0][0], k1)), np.multiply(W[0][1], k2)), W[0][2])

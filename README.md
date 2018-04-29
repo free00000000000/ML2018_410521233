@@ -28,16 +28,9 @@ ML2018_410521233
   a = numpy.contcatenate((k1, k2, I), axis=0)
 
 #### B. 使用的參數
-* 梯度下降
-
-  learning rate = 0.01
-
-  tf.train.GradientDescentOptimizer(0.01)
-* loss 函數
-
-  loss = mean((e-E)^2^) 
-  
-  loss = tf.reduce_mean(tf.square(tf.subtract(e, E)))
+* MaxIterLimit: 3556
+* 𝜖: 1e-5
+* 𝛼: 0.01
 
 
 #### C. 求得的向量 W
